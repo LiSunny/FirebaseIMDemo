@@ -9,6 +9,9 @@
 #import "OtherVidelTableViewCell.h"
 #import <AVFoundation/AVFoundation.h>
 @import FirebaseStorage;
+
+
+
 @interface OtherVidelTableViewCell ()
 {
     AVPlayer * player;
@@ -17,15 +20,23 @@
 
 @property (nonatomic,strong) FIRStorageReference * storageRef;
 
+
+
 @end
 
 
 
 @implementation OtherVidelTableViewCell
 
+
+
+
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.containsView.backgroundColor = [UIColor redColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,6 +56,9 @@
     [self downDataWithFilePath:filePath];
     
 }
+
+
+
 - (void)downDataWithFilePath:(NSString *)storageRefPath
 {
     
@@ -79,7 +93,7 @@
             
             //3、创建视频显示的图层
             AVPlayerLayer *showVodioLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-            showVodioLayer.frame = self.containsView.frame;
+            showVodioLayer.frame = self.containsView.bounds;
             [self.containsView.layer addSublayer:showVodioLayer];
             
             [player play];

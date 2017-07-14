@@ -7,6 +7,8 @@
 //
 
 #import "MeChatImgTableViewCell.h"
+#import "FileTool.h"
+#import "MD5Tools.h"
 @import FirebaseStorage;
 
 @interface MeChatImgTableViewCell ()
@@ -38,7 +40,13 @@
     [inforArr removeObjectsInRange:NSMakeRange(0, inforArr.count -2)];
     NSString * filePath = [inforArr componentsJoinedByString:@"/"];
     
-    [self downDataWithFilePath:filePath];
+    BOOL fileExist = [FileTool isFileExist:filePath];
+    if (fileExist) {
+        self.imageMessageView.image = [UIImage imageWithContentsOfFile:filePath];
+    }else{
+        [self downDataWithFilePath:filePath];
+    }
+    
     
 }
 - (void)downDataWithFilePath:(NSString *)storageRefPath
@@ -49,28 +57,33 @@
     //创建 文件路径
     FIRStorageReference * imgRef = [self.storageRef child:storageRefPath];
     
-    //获取Documents路径
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    //文件名称
-    NSString * fileName = [NSString stringWithFormat:@"%@.png",[self getTimeStamp]];
-    //生成路径
-    NSString *path = [NSString stringWithFormat:@"%@%@%@", [paths objectAtIndex:0],@"/img/",fileName];
-    NSLog(@"path:%@", path);
+    NSString * path = [self getFilePath];
     
     NSURL * url = [NSURL fileURLWithPath:path];
     
     [imgRef writeToFile:url completion:^(NSURL * _Nullable URL, NSError * _Nullable error) {
         
-        
         if (error) {
             
         }else{
             NSLog(@"本地URL ===== %@",URL);
-            NSString * strUrl = [NSString stringWithFormat:@"%@",URL];
             self.imageMessageView.image = [UIImage imageWithContentsOfFile:path];
         }
     }];
 }
+- (NSString *)getFilePath
+{
+    //获取Documents路径
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //文件名称
+    NSString * fileName = [NSString stringWithFormat:@"%@.png",[self getTimeStamp]];
+    //生成路径
+    NSString *path = [NSString stringWithFormat:@"%@%@%@%@%@", [paths objectAtIndex:0],@"/",[self md5Str:[self getTimeStamp]],@"/img/",fileName];
+    NSLog(@"path:%@", path);
+    
+    return path;
+}
+
 - (NSString *)getTimeStamp
 {
     //包装数据
@@ -79,6 +92,12 @@
     [formatter setDateFormat:@"yyyyMMddHHmmss"];
     NSString * timestap = [formatter stringFromDate:date];
     return timestap;
+}
+- (NSString *)md5Str:(NSString *)str
+{
+    NSString * md5Str = [MD5Tools MD5ForUpper32Bate:str];
+    NSLog(@"大写32位:%@", md5Str);
+    return md5Str;
 }
 
 @end

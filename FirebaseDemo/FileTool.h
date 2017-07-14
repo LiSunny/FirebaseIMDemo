@@ -10,4 +10,6 @@
 
 @interface FileTool : NSObject
 
++ (BOOL)isFileExist:(NSString *)path;
+
 @end

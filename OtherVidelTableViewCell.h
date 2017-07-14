@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MessageModel.h"
+
 @interface OtherVidelTableViewCell : UITableViewCell
 - (void)configerCell:(MessageModel *)imageModel;
 @end

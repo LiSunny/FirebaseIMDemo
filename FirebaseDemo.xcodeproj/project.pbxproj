@@ -12,6 +12,8 @@
 		9F79AD38E0585F3692D3E2C6 /* libPods-FirebaseDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CCF4A78C98F9C0D8ACC159 /* libPods-FirebaseDemoUITests.a */; };
 		D52D40A01F1615C00000FA4E /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D52D409E1F1615C00000FA4E /* PlayerTableViewCell.m */; };
 		D52D40A11F1615C00000FA4E /* PlayerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D52D409F1F1615C00000FA4E /* PlayerTableViewCell.xib */; };
+		D559C5611F185481009DB8E1 /* FileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D559C5601F185481009DB8E1 /* FileTool.m */; };
+		D559C5641F186391009DB8E1 /* MD5Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = D559C5631F186391009DB8E1 /* MD5Tools.m */; };
 		D56620BA1F162BDC00506FAB /* IMG_0001.MOV in Resources */ = {isa = PBXBuildFile; fileRef = D56620B91F162BDC00506FAB /* IMG_0001.MOV */; };
 		D56620C31F162C6D00506FAB /* MeChatVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D56620C11F162C6D00506FAB /* MeChatVideoTableViewCell.m */; };
 		D56620C41F162C6D00506FAB /* MeChatVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D56620C21F162C6D00506FAB /* MeChatVideoTableViewCell.xib */; };
@@ -69,6 +71,10 @@
 		D52D409D1F1615C00000FA4E /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
 		D52D409E1F1615C00000FA4E /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 		D52D409F1F1615C00000FA4E /* PlayerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTableViewCell.xib; sourceTree = "<group>"; };
+		D559C55F1F185481009DB8E1 /* FileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTool.h; sourceTree = "<group>"; };
+		D559C5601F185481009DB8E1 /* FileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTool.m; sourceTree = "<group>"; };
+		D559C5621F186391009DB8E1 /* MD5Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MD5Tools.h; sourceTree = "<group>"; };
+		D559C5631F186391009DB8E1 /* MD5Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MD5Tools.m; sourceTree = "<group>"; };
 		D56620B91F162BDC00506FAB /* IMG_0001.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = IMG_0001.MOV; sourceTree = "<group>"; };
 		D56620C01F162C6D00506FAB /* MeChatVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeChatVideoTableViewCell.h; sourceTree = "<group>"; };
 		D56620C11F162C6D00506FAB /* MeChatVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeChatVideoTableViewCell.m; sourceTree = "<group>"; };
@@ -227,6 +233,10 @@
 				D5CD8AF61F15F0DE008D8FB2 /* OtherImgTableViewCell.xib */,
 				D5CD8B3B1F16092D008D8FB2 /* MessageModel.h */,
 				D5CD8B3C1F16092D008D8FB2 /* MessageModel.m */,
+				D559C55F1F185481009DB8E1 /* FileTool.h */,
+				D559C5601F185481009DB8E1 /* FileTool.m */,
+				D559C5621F186391009DB8E1 /* MD5Tools.h */,
+				D559C5631F186391009DB8E1 /* MD5Tools.m */,
 			);
 			path = FirebaseDemo;
 			sourceTree = "<group>";
@@ -548,6 +558,7 @@
 			files = (
 				D5CD8AF71F15F0DE008D8FB2 /* OtherImgTableViewCell.m in Sources */,
 				D5BFA19D1F14A2BA007AC59F /* ViewController.m in Sources */,
+				D559C5641F186391009DB8E1 /* MD5Tools.m in Sources */,
 				D5BFA19A1F14A2BA007AC59F /* AppDelegate.m in Sources */,
 				D5F25C551F15B8AB002B2EA3 /* ChatViewController.m in Sources */,
 				D52D40A01F1615C00000FA4E /* PlayerTableViewCell.m in Sources */,
@@ -555,6 +566,7 @@
 				D59927E31F15BDDD0024A5A5 /* MeChatTextTableViewCell.m in Sources */,
 				D5CD8AF21F15F0CB008D8FB2 /* MeChatImgTableViewCell.m in Sources */,
 				D5BFA1971F14A2BA007AC59F /* main.m in Sources */,
+				D559C5611F185481009DB8E1 /* FileTool.m in Sources */,
 				D56620C81F162C7F00506FAB /* OtherVidelTableViewCell.m in Sources */,
 				D59927E81F15BF0B0024A5A5 /* OtherTextTableViewCell.m in Sources */,
 				D59927EC1F15BFD60024A5A5 /* ChatHistoryModel.m in Sources */,

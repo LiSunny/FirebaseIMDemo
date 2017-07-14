@@ -13,6 +13,7 @@
 
 #import "ChatViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "MD5Tools.h"
 #import "ChatHistoryModel.h"
 #import "MeChatTextTableViewCell.h"
 #import "OtherTextTableViewCell.h"
@@ -75,6 +76,8 @@
 }
 
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     self.keyBoardlsVisible = NO;
@@ -105,8 +108,6 @@
     [self.chatListTableView registerNib:[UINib nibWithNibName:@"MeChatVideoTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:MeChatVideoTableViewCellIdent];
     [self.chatListTableView registerNib:[UINib nibWithNibName:@"OtherVidelTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:OtherVidelTableViewCellIdent];
     
-    self.chatListTableView.rowHeight = 63;
-    
     [self configerDataBase];
     
     [self configerStorage];
@@ -118,8 +119,11 @@
 {
     self.ref = [[FIRDatabase database] referenceFromURL:@"https://chat-53c29.firebaseio.com/"];
     
+    NSString * timeStr = [self getTimeStamp];
+    NSString * md5Str = [MD5Tools MD5ForUpper32Bate:timeStr];
+    
     //创建两个人的聊天室
-    [[[[self.ref child:@"message"] child:@"room1"] child:@"notify"]
+    [[[[self.ref child:@"message"] child:md5Str] child:@"notify"]
      setValue:@{@"messageType": @"system",@"message":@"欢迎进入聊天室"}];
 
     [self observeMessage];

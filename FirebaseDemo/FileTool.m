@@ -10,4 +10,12 @@
 
 @implementation FileTool
 
+
++ (BOOL)isFileExist:(NSString *)path
+{
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    return [fileManager fileExistsAtPath:path];
+}
+
+
 @end
